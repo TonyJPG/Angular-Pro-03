@@ -14,7 +14,6 @@
 
   <!-- listado -->
   <div class="mt-4 flex flex-col col-span-2">
-    <h2>Issues</h2>
     <a routerLink="/issue/123">Ir a issue 123</a>
     <!-- TODO: listado de issues -->
     <!-- TODO: spinner -->
@@ -23,8 +22,10 @@
 
   <!-- labels -->
   <div>
-    <h2>Labels</h2>
-    <!-- TODO: spinner -->
-    <!-- TODO: label selector -->
+    @if (labelsQuery.isLoading()) {
+      <p>estamos cargando...</p>
+    } @else {
+      <issues-labels-selector [labels]="labelsQuery.data() ?? []" />
+    }
   </div>
 </section>

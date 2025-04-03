@@ -5,5 +5,5 @@ export interface GitHubLabel {
   name:        string;
   color:       string;
   default:     boolean;
-  description: string;
+  description?: string;
 }
