@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { GitHubLabel } from '../../interfaces/github-label.interface';
+import { GitHubLabel } from '../../interfaces';
 import { CommonModule } from '@angular/common';
 
 @Component({
