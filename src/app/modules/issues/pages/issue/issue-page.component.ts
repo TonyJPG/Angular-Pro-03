@@ -1,13 +1,14 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { map, tap } from 'rxjs';
 import { IssueService } from '../../services/issue.service';
+import { IssueCommentComponent } from '../../components/issue-comment/issue-comment.component';
 
 @Component({
   selector: 'issue-page',
   standalone: true,
-  imports: [],
+  imports: [RouterLink, IssueCommentComponent],
   templateUrl: './issue-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -21,4 +22,6 @@ export default class IssuePageComponent {
       tap((issueId) => this.issueService.setIssueNumber(issueId)),
     ),
   );
+
+  public issueQuery = this.issueService.issueQuery;
 }

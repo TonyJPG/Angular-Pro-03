@@ -8,6 +8,7 @@ import {
   withDevtools,
 } from '@tanstack/angular-query-experimental';
 import { QueryClient } from '@tanstack/query-core';
+import { provideMarkdown } from 'ngx-markdown';
 
 import { routes } from './app.routes';
 
@@ -17,5 +18,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideExperimentalZonelessChangeDetection(),
     provideTanStackQuery(new QueryClient(), withDevtools()),
+    provideMarkdown(),
   ],
 };
