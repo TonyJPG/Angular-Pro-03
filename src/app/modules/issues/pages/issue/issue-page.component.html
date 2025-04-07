@@ -10,7 +10,6 @@
 }
 
 <!-- comentarios -->
-
 @for (comment of issueCommentsQuery.data(); track comment.id) {
   <issue-comment [issue]="comment"></issue-comment>
 } @empty {
