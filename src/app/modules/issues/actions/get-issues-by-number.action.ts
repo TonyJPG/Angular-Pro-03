@@ -5,6 +5,7 @@ import { GitHubIssue } from '../interfaces';
 const { BASE_URL, GITHUB_TOKEN } = environment;
 
 export const getIssueByNumber = async (id: string): Promise<GitHubIssue> => {
+  console.log('getIssueByNumber called!');
   await sleep(1500);
 
   try {
@@ -17,8 +18,7 @@ export const getIssueByNumber = async (id: string): Promise<GitHubIssue> => {
     if (!resp.ok) throw new Error(`Can't load issue #${id}`);
 
     const issue: GitHubIssue = await resp.json();
-
-    console.log({ issue });
+    ('');
     return issue;
   } catch (error) {
     throw `Can't load issue #${id}`;
