@@ -6,9 +6,27 @@
   <!-- botones para controlar el estado (state) -->
   <div class="col-span-3 flex flex-col">
     <div class="flex gap-2">
-      <button class="btn active">All</button>
-      <button class="btn">Open</button>
-      <button class="btn">Closed</button>
+      <button
+        [class.active]="currentState() === state.All"
+        class="btn"
+        (click)="onChangeState(state.All)"
+      >
+        All
+      </button>
+      <button
+        [class.active]="currentState() === state.Open"
+        class="btn"
+        (click)="onChangeState(state.Open)"
+      >
+        Open
+      </button>
+      <button
+        [class.active]="currentState() === state.Closed"
+        class="btn"
+        (click)="onChangeState(state.Closed)"
+      >
+        Closed
+      </button>
     </div>
   </div>
 
