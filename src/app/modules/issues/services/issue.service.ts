@@ -15,14 +15,14 @@ export class IssueService {
   issueQuery = injectQuery(() => ({
     queryKey: ['issue', this.issueNumber()],
     queryFn: () => getIssueByNumber(this.issueNumber()!),
-    enabled: this.issueNumber !== null,
+    enabled: this.issueNumber() !== null,
     staleTime: 5 * 60 * 1000,
   }));
 
   issueCommentsQuery = injectQuery(() => ({
     queryKey: ['issue', this.issueNumber(), 'comments'],
     queryFn: () => getIssueCommentsByNumber(this.issueNumber()!),
-    enabled: this.issueNumber !== null,
+    enabled: this.issueNumber() !== null,
   }));
 
   setIssueNumber(issueId: string) {
